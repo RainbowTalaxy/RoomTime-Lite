@@ -7,18 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7EAD754B27C5D9B4002F9682 /* RoomTime_LiteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD754A27C5D9B4002F9682 /* RoomTime_LiteApp.swift */; };
+		7EAD754B27C5D9B4002F9682 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD754A27C5D9B4002F9682 /* App.swift */; };
 		7EAD754D27C5D9B4002F9682 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD754C27C5D9B4002F9682 /* ContentView.swift */; };
 		7EAD754F27C5D9B5002F9682 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EAD754E27C5D9B5002F9682 /* Assets.xcassets */; };
 		7EAD755227C5D9B5002F9682 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EAD755127C5D9B5002F9682 /* Preview Assets.xcassets */; };
+		7EAD756027C5E13F002F9682 /* RecordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD755F27C5E13F002F9682 /* RecordListView.swift */; };
+		7EAD756227C5E15A002F9682 /* LibraryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD756127C5E15A002F9682 /* LibraryListView.swift */; };
+		7EAD756427C5E170002F9682 /* UserSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD756327C5E170002F9682 /* UserSettingView.swift */; };
+		7EAD756727C5E429002F9682 /* Markdown in Frameworks */ = {isa = PBXBuildFile; productRef = 7EAD756627C5E429002F9682 /* Markdown */; };
+		7EAD756927C5E429002F9682 /* RoomTime in Frameworks */ = {isa = PBXBuildFile; productRef = 7EAD756827C5E429002F9682 /* RoomTime */; };
+		7EAD756C27C5FA60002F9682 /* UserInfoSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD756B27C5FA60002F9682 /* UserInfoSettingView.swift */; };
+		7EAD756E27C5FC71002F9682 /* TagLibrarySettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD756D27C5FC71002F9682 /* TagLibrarySettingView.swift */; };
+		7EAD757527C60CD2002F9682 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD757427C60CD2002F9682 /* Tag.swift */; };
+		7EAD757A27C61860002F9682 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD757927C6185F002F9682 /* Test.swift */; };
+		7EAD757D27C61DB9002F9682 /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = 7EAD757C27C61DB9002F9682 /* Yams */; };
+		7EAD758027C62145002F9682 /* Files in Frameworks */ = {isa = PBXBuildFile; productRef = 7EAD757F27C62145002F9682 /* Files */; };
+		7EAD758227C621B1002F9682 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD758127C621B1002F9682 /* Settings.swift */; };
+		7EAD758527C6228C002F9682 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD758427C6228C002F9682 /* UserSettings.swift */; };
+		7EAD758827C62346002F9682 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD758727C62346002F9682 /* Storage.swift */; };
+		7EAD758C27C632A0002F9682 /* TagFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD758B27C632A0002F9682 /* TagFormView.swift */; };
+		7EAD758F27C63608002F9682 /* UIColor+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD758E27C63608002F9682 /* UIColor+Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7EAD754727C5D9B4002F9682 /* RoomTime Lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RoomTime Lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7EAD754A27C5D9B4002F9682 /* RoomTime_LiteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTime_LiteApp.swift; sourceTree = "<group>"; };
+		7EAD754A27C5D9B4002F9682 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		7EAD754C27C5D9B4002F9682 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7EAD754E27C5D9B5002F9682 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7EAD755127C5D9B5002F9682 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7EAD755927C5DA27002F9682 /* RoomTime */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RoomTime; path = ../RoomTime; sourceTree = "<group>"; };
+		7EAD755A27C5E06E002F9682 /* RoomTime-Lite-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "RoomTime-Lite-Info.plist"; sourceTree = SOURCE_ROOT; };
+		7EAD755F27C5E13F002F9682 /* RecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListView.swift; sourceTree = "<group>"; };
+		7EAD756127C5E15A002F9682 /* LibraryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryListView.swift; sourceTree = "<group>"; };
+		7EAD756327C5E170002F9682 /* UserSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingView.swift; sourceTree = "<group>"; };
+		7EAD756B27C5FA60002F9682 /* UserInfoSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoSettingView.swift; sourceTree = "<group>"; };
+		7EAD756D27C5FC71002F9682 /* TagLibrarySettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLibrarySettingView.swift; sourceTree = "<group>"; };
+		7EAD757427C60CD2002F9682 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		7EAD757927C6185F002F9682 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		7EAD758127C621B1002F9682 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		7EAD758427C6228C002F9682 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		7EAD758727C62346002F9682 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		7EAD758B27C632A0002F9682 /* TagFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagFormView.swift; sourceTree = "<group>"; };
+		7EAD758E27C63608002F9682 /* UIColor+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Color.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +56,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EAD758027C62145002F9682 /* Files in Frameworks */,
+				7EAD756927C5E429002F9682 /* RoomTime in Frameworks */,
+				7EAD757D27C61DB9002F9682 /* Yams in Frameworks */,
+				7EAD756727C5E429002F9682 /* Markdown in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,6 +69,7 @@
 		7EAD753E27C5D9B4002F9682 = {
 			isa = PBXGroup;
 			children = (
+				7EAD755827C5DA27002F9682 /* Packages */,
 				7EAD754927C5D9B4002F9682 /* RoomTime Lite */,
 				7EAD754827C5D9B4002F9682 /* Products */,
 			);
@@ -51,9 +86,16 @@
 		7EAD754927C5D9B4002F9682 /* RoomTime Lite */ = {
 			isa = PBXGroup;
 			children = (
-				7EAD754A27C5D9B4002F9682 /* RoomTime_LiteApp.swift */,
+				7EAD754A27C5D9B4002F9682 /* App.swift */,
+				7EAD757927C6185F002F9682 /* Test.swift */,
 				7EAD754C27C5D9B4002F9682 /* ContentView.swift */,
+				7EAD757327C60C89002F9682 /* Views */,
+				7EAD758327C62258002F9682 /* ViewModel */,
+				7EAD757027C605EE002F9682 /* Model */,
+				7EAD758627C62329002F9682 /* Utility */,
+				7EAD758D27C635EF002F9682 /* Extension */,
 				7EAD754E27C5D9B5002F9682 /* Assets.xcassets */,
+				7EAD755A27C5E06E002F9682 /* RoomTime-Lite-Info.plist */,
 				7EAD755027C5D9B5002F9682 /* Preview Content */,
 			);
 			path = "RoomTime Lite";
@@ -65,6 +107,68 @@
 				7EAD755127C5D9B5002F9682 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7EAD755827C5DA27002F9682 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD755927C5DA27002F9682 /* RoomTime */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		7EAD756A27C5F988002F9682 /* UserSetting */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD756B27C5FA60002F9682 /* UserInfoSettingView.swift */,
+				7EAD756D27C5FC71002F9682 /* TagLibrarySettingView.swift */,
+				7EAD758B27C632A0002F9682 /* TagFormView.swift */,
+			);
+			path = UserSetting;
+			sourceTree = "<group>";
+		};
+		7EAD757027C605EE002F9682 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD757427C60CD2002F9682 /* Tag.swift */,
+				7EAD758127C621B1002F9682 /* Settings.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7EAD757327C60C89002F9682 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD755F27C5E13F002F9682 /* RecordListView.swift */,
+				7EAD756127C5E15A002F9682 /* LibraryListView.swift */,
+				7EAD756327C5E170002F9682 /* UserSettingView.swift */,
+				7EAD756A27C5F988002F9682 /* UserSetting */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7EAD758327C62258002F9682 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD758427C6228C002F9682 /* UserSettings.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7EAD758627C62329002F9682 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD758727C62346002F9682 /* Storage.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		7EAD758D27C635EF002F9682 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD758E27C63608002F9682 /* UIColor+Color.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +187,12 @@
 			dependencies = (
 			);
 			name = "RoomTime Lite";
+			packageProductDependencies = (
+				7EAD756627C5E429002F9682 /* Markdown */,
+				7EAD756827C5E429002F9682 /* RoomTime */,
+				7EAD757C27C61DB9002F9682 /* Yams */,
+				7EAD757F27C62145002F9682 /* Files */,
+			);
 			productName = "RoomTime Lite";
 			productReference = 7EAD754727C5D9B4002F9682 /* RoomTime Lite.app */;
 			productType = "com.apple.product-type.application";
@@ -109,8 +219,14 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 7EAD753E27C5D9B4002F9682;
+			packageReferences = (
+				7EAD756527C5E429002F9682 /* XCRemoteSwiftPackageReference "RoomTime" */,
+				7EAD757B27C61DB9002F9682 /* XCRemoteSwiftPackageReference "Yams" */,
+				7EAD757E27C62145002F9682 /* XCRemoteSwiftPackageReference "Files" */,
+			);
 			productRefGroup = 7EAD754827C5D9B4002F9682 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +253,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EAD757527C60CD2002F9682 /* Tag.swift in Sources */,
+				7EAD756427C5E170002F9682 /* UserSettingView.swift in Sources */,
+				7EAD757A27C61860002F9682 /* Test.swift in Sources */,
+				7EAD756227C5E15A002F9682 /* LibraryListView.swift in Sources */,
+				7EAD758227C621B1002F9682 /* Settings.swift in Sources */,
+				7EAD758827C62346002F9682 /* Storage.swift in Sources */,
+				7EAD758C27C632A0002F9682 /* TagFormView.swift in Sources */,
+				7EAD758F27C63608002F9682 /* UIColor+Color.swift in Sources */,
+				7EAD756E27C5FC71002F9682 /* TagLibrarySettingView.swift in Sources */,
 				7EAD754D27C5D9B4002F9682 /* ContentView.swift in Sources */,
-				7EAD754B27C5D9B4002F9682 /* RoomTime_LiteApp.swift in Sources */,
+				7EAD754B27C5D9B4002F9682 /* App.swift in Sources */,
+				7EAD756C27C5FA60002F9682 /* UserInfoSettingView.swift in Sources */,
+				7EAD756027C5E13F002F9682 /* RecordListView.swift in Sources */,
+				7EAD758527C6228C002F9682 /* UserSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +400,7 @@
 				DEVELOPMENT_TEAM = UGSV2864FU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RoomTime-Lite-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -283,7 +412,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.talaxy.RoomTime-Lite";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "RoomTime Lite";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -301,6 +430,7 @@
 				DEVELOPMENT_TEAM = UGSV2864FU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RoomTime-Lite-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -312,7 +442,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.talaxy.RoomTime-Lite";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "RoomTime Lite";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -341,6 +471,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7EAD756527C5E429002F9682 /* XCRemoteSwiftPackageReference "RoomTime" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "file:///Users/talaxy/Desktop/repos/RoomTime";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+		7EAD757B27C61DB9002F9682 /* XCRemoteSwiftPackageReference "Yams" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jpsim/Yams.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		7EAD757E27C62145002F9682 /* XCRemoteSwiftPackageReference "Files" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JohnSundell/Files.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7EAD756627C5E429002F9682 /* Markdown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7EAD756527C5E429002F9682 /* XCRemoteSwiftPackageReference "RoomTime" */;
+			productName = Markdown;
+		};
+		7EAD756827C5E429002F9682 /* RoomTime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7EAD756527C5E429002F9682 /* XCRemoteSwiftPackageReference "RoomTime" */;
+			productName = RoomTime;
+		};
+		7EAD757C27C61DB9002F9682 /* Yams */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7EAD757B27C61DB9002F9682 /* XCRemoteSwiftPackageReference "Yams" */;
+			productName = Yams;
+		};
+		7EAD757F27C62145002F9682 /* Files */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7EAD757E27C62145002F9682 /* XCRemoteSwiftPackageReference "Files" */;
+			productName = Files;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7EAD753F27C5D9B4002F9682 /* Project object */;
 }

@@ -12,6 +12,9 @@ struct RoomTime_LiteApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear {
+                    test()
+                }
         }
     }
 }
