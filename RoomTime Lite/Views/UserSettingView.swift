@@ -28,8 +28,6 @@ struct UserSettingView: View {
                         Text(settings.authorName)
                             .foregroundColor(.secondary)
                     }
-                } header: {
-                    Text("个人信息")
                 }
                 
                 Section {
@@ -46,6 +44,9 @@ struct UserSettingView: View {
             .navigationTitle("设置")
         }
         .navigationViewStyle(.stack)
+        .onAppear {
+            settings.fresh()
+        }
     }
 }
 

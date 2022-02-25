@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E1A9E8827C755CD00FD4558 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1A9E8727C755CD00FD4558 /* TagView.swift */; };
+		7E1A9E8A27C7578D00FD4558 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1A9E8927C7578D00FD4558 /* Record.swift */; };
+		7E93460627C87FC000C50081 /* RecordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E93460527C87FC000C50081 /* RecordList.swift */; };
+		7E93460827C8883700C50081 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E93460727C8883700C50081 /* Date.swift */; };
+		7E93460A27C8A37C00C50081 /* TagColorChooseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E93460927C8A37C00C50081 /* TagColorChooseView.swift */; };
+		7E93460F27C8AF0600C50081 /* RecordDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E93460E27C8AF0600C50081 /* RecordDetail.swift */; };
+		7E93461127C8C0CF00C50081 /* RecordDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E93461027C8C0CF00C50081 /* RecordDetailView.swift */; };
 		7EAD754B27C5D9B4002F9682 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD754A27C5D9B4002F9682 /* App.swift */; };
 		7EAD754D27C5D9B4002F9682 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD754C27C5D9B4002F9682 /* ContentView.swift */; };
 		7EAD754F27C5D9B5002F9682 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EAD754E27C5D9B5002F9682 /* Assets.xcassets */; };
@@ -30,6 +37,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E1A9E8727C755CD00FD4558 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		7E1A9E8927C7578D00FD4558 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		7E93460527C87FC000C50081 /* RecordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordList.swift; sourceTree = "<group>"; };
+		7E93460727C8883700C50081 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		7E93460927C8A37C00C50081 /* TagColorChooseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagColorChooseView.swift; sourceTree = "<group>"; };
+		7E93460E27C8AF0600C50081 /* RecordDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetail.swift; sourceTree = "<group>"; };
+		7E93461027C8C0CF00C50081 /* RecordDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailView.swift; sourceTree = "<group>"; };
 		7EAD754727C5D9B4002F9682 /* RoomTime Lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RoomTime Lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EAD754A27C5D9B4002F9682 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		7EAD754C27C5D9B4002F9682 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,6 +80,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E1A9E8627C755A700FD4558 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				7E1A9E8727C755CD00FD4558 /* TagView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		7E93460B27C8AE4300C50081 /* RecordEditing */ = {
+			isa = PBXGroup;
+			children = (
+				7E93461027C8C0CF00C50081 /* RecordDetailView.swift */,
+			);
+			path = RecordEditing;
+			sourceTree = "<group>";
+		};
 		7EAD753E27C5D9B4002F9682 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +153,7 @@
 				7EAD756B27C5FA60002F9682 /* UserInfoSettingView.swift */,
 				7EAD756D27C5FC71002F9682 /* TagLibrarySettingView.swift */,
 				7EAD758B27C632A0002F9682 /* TagFormView.swift */,
+				7E93460927C8A37C00C50081 /* TagColorChooseView.swift */,
 			);
 			path = UserSetting;
 			sourceTree = "<group>";
@@ -132,6 +163,7 @@
 			children = (
 				7EAD757427C60CD2002F9682 /* Tag.swift */,
 				7EAD758127C621B1002F9682 /* Settings.swift */,
+				7E1A9E8927C7578D00FD4558 /* Record.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,9 +171,11 @@
 		7EAD757327C60C89002F9682 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7E1A9E8627C755A700FD4558 /* Component */,
 				7EAD755F27C5E13F002F9682 /* RecordListView.swift */,
 				7EAD756127C5E15A002F9682 /* LibraryListView.swift */,
 				7EAD756327C5E170002F9682 /* UserSettingView.swift */,
+				7E93460B27C8AE4300C50081 /* RecordEditing */,
 				7EAD756A27C5F988002F9682 /* UserSetting */,
 			);
 			path = Views;
@@ -151,6 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				7EAD758427C6228C002F9682 /* UserSettings.swift */,
+				7E93460527C87FC000C50081 /* RecordList.swift */,
+				7E93460E27C8AF0600C50081 /* RecordDetail.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -167,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				7EAD758E27C63608002F9682 /* UIColor+Color.swift */,
+				7E93460727C8883700C50081 /* Date.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -255,17 +292,24 @@
 			files = (
 				7EAD757527C60CD2002F9682 /* Tag.swift in Sources */,
 				7EAD756427C5E170002F9682 /* UserSettingView.swift in Sources */,
+				7E93460627C87FC000C50081 /* RecordList.swift in Sources */,
 				7EAD757A27C61860002F9682 /* Test.swift in Sources */,
 				7EAD756227C5E15A002F9682 /* LibraryListView.swift in Sources */,
 				7EAD758227C621B1002F9682 /* Settings.swift in Sources */,
 				7EAD758827C62346002F9682 /* Storage.swift in Sources */,
+				7E93460827C8883700C50081 /* Date.swift in Sources */,
+				7E1A9E8A27C7578D00FD4558 /* Record.swift in Sources */,
 				7EAD758C27C632A0002F9682 /* TagFormView.swift in Sources */,
 				7EAD758F27C63608002F9682 /* UIColor+Color.swift in Sources */,
 				7EAD756E27C5FC71002F9682 /* TagLibrarySettingView.swift in Sources */,
 				7EAD754D27C5D9B4002F9682 /* ContentView.swift in Sources */,
 				7EAD754B27C5D9B4002F9682 /* App.swift in Sources */,
+				7E93461127C8C0CF00C50081 /* RecordDetailView.swift in Sources */,
+				7E1A9E8827C755CD00FD4558 /* TagView.swift in Sources */,
 				7EAD756C27C5FA60002F9682 /* UserInfoSettingView.swift in Sources */,
+				7E93460A27C8A37C00C50081 /* TagColorChooseView.swift in Sources */,
 				7EAD756027C5E13F002F9682 /* RecordListView.swift in Sources */,
+				7E93460F27C8AF0600C50081 /* RecordDetail.swift in Sources */,
 				7EAD758527C6228C002F9682 /* UserSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

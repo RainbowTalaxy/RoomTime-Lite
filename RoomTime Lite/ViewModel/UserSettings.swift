@@ -17,9 +17,21 @@ class UserSettings: ObservableObject {
         self.tagLirary = settings.tagLirary
     }
     
-    func addTag(_ tag: Tag) {
+    func addTag(name: String, color: TagColor) -> Tag {
+        if let tag = tagLirary.first(where: { $0.name == name }) {
+            return tag
+        }
+        let tag = Tag(name: name, color: color)
         tagLirary.append(tag)
         store()
+        return tag
+    }
+    
+    func updateTag(tag: Tag, color: TagColor) {
+        if let index = tagLirary.firstIndex(where: { $0 == tag }) {
+            tagLirary[index] = Tag(name: tag.name, color: color)
+            store()
+        }
     }
     
     func removeTag(index: Int) {
@@ -29,5 +41,11 @@ class UserSettings: ObservableObject {
     
     func store() {
         Storage.store(userSettings: Settings(authorName: authorName, tagLirary: tagLirary))
+    }
+    
+    func fresh() {
+        let settings = Storage.readUserSettings()
+        self.authorName = settings.authorName
+        self.tagLirary = settings.tagLirary
     }
 }

@@ -7,12 +7,15 @@
 
 import SwiftUI
 
+let settings = UserSettings()
+
 struct ContentView: View {
     @State private var isAlertVisible = false
     
     var body: some View {
         TabView {
             RecordListView()
+                .environmentObject(RecordList(settings: settings))
                 .tabItem {
                     Label("文章", systemImage: "doc.text")
                 }
@@ -23,11 +26,11 @@ struct ContentView: View {
                 }
             
             UserSettingView()
-                .environmentObject(UserSettings())
                 .tabItem {
                     Label("设置", systemImage: "person")
                 }
         }
+        .environmentObject(settings)
     }
 }
 

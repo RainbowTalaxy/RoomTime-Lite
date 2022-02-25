@@ -36,7 +36,6 @@ struct TagFormView: View {
                                         )
                                         .padding(.horizontal, 5)
                                 }
-
                             }
                         }
                         .padding(.vertical, 10)
@@ -49,7 +48,7 @@ struct TagFormView: View {
                 leading: Button("取消") {
                     presentationMode.wrappedValue.dismiss()
                 }, trailing: Button("添加") {
-                    settings.addTag(Tag(name: tagName, color: color))
+                    _ = settings.addTag(name: tagName, color: color)
                     presentationMode.wrappedValue.dismiss()
                 }
             )

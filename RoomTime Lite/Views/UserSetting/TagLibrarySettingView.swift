@@ -14,14 +14,13 @@ struct TagLibrarySettingView: View {
     var body: some View {
         List {
             ForEach(settings.tagLirary) { tag in
-                Text(tag.name)
-                    .padding(.horizontal, 17)
-                    .padding(.vertical, 7)
-                    .background(
-                        RoundedRectangle(cornerRadius: 13)
-                            .fill(tag.color.value)
-                    )
-                    .padding(.vertical, 5)
+                NavigationLink {
+                    TagColorChooseView(tag: tag)
+                } label: {
+                    TagView(tag: tag)
+                        .padding(.vertical, 5)
+                }
+
             }
             .onDelete { indexs in
                 for index in indexs {

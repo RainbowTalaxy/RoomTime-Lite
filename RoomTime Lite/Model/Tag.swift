@@ -9,6 +9,15 @@ import Foundation
 import SwiftUI
 import RoomTime
 
+struct Tag: Codable, Identifiable, Hashable {
+    let name: String
+    let color: TagColor
+    
+    var id: String {
+        name
+    }
+}
+
 enum TagColor: String, Codable, Identifiable {
     case red, orange, yellow, green, cyan, sky, blue, purple, pink,
          gray, lightgray
@@ -17,6 +26,8 @@ enum TagColor: String, Codable, Identifiable {
         red, orange, yellow, green, cyan, sky, blue, purple, pink,
              gray, lightgray
     ]
+    
+    static var random = all.randomElement() ?? .red
     
     var id: String {
         self.rawValue
@@ -47,14 +58,5 @@ enum TagColor: String, Codable, Identifiable {
         case .lightgray:
             return Color(hex: 0xE9E9E9)
         }
-    }
-}
-
-struct Tag: Codable, Identifiable {
-    let name: String
-    let color: TagColor
-    
-    var id: String {
-        name
     }
 }
