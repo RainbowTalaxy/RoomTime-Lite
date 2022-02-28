@@ -27,7 +27,7 @@ struct TagMiniView: View {
     
     var body: some View {
         Text(tag.name)
-            .font(.system(size: 12))
+            .font(.system(size: 14))
             .foregroundColor(.black)
             .padding(.horizontal, 10)
             .padding(.vertical, 5)

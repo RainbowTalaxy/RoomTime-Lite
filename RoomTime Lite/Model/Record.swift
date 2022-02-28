@@ -59,17 +59,18 @@ struct Record {
         self.authors = authors
         self.date = date
         self.tagNames = tags.map { $0.name }
-        self.content = content
+        self.content = content.trimmed()
     }
     
     var format: String {
         let fm: [String: Any] = [
+            "title": title,
             "authors": authors,
             "date": date,
             "tags": tagNames,
         ]
         let yaml = (try? Yams.dump(object: fm)) ?? ""
-        return "\(yaml)\n\(content)"
+        return "---\n\(yaml)---\n\n\(content)"
     }
 }
 
@@ -87,7 +88,7 @@ struct RecordInfo: Identifiable {
         let record = Storage.readRecord(file: file)
         
         self.file = file
-        self.title = record.title
+        self.title = record.title.trimmed() == "" ? "无标题" : record.title
         self.date = record.date
         self.tags = record.tagNames.map { tagName in
             if let tag = settings.tagLirary.first(where: { $0.name == tagName }) {

@@ -24,7 +24,7 @@ enum TagColor: String, Codable, Identifiable {
     
     static let all = [
         red, orange, yellow, green, cyan, sky, blue, purple, pink,
-             gray, lightgray
+             gray
     ]
     
     static var random = all.randomElement() ?? .red

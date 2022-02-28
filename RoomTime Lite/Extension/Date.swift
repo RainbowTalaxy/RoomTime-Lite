@@ -8,5 +8,7 @@
 import Foundation
 
 extension Date {
-    
+    var numeric: String {
+        self.formatted(date: .numeric, time: .omitted)
+    }
 }

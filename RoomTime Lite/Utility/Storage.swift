@@ -35,6 +35,10 @@ class Storage {
     static func readUserSettings() -> Settings {
         do {
             let content = try getFile(named: userSettingsFileName).readAsString()
+            if content.trimmed() == "" {
+                store(userSettings: Settings.default)
+                return Settings.default
+            }
             return try YAMLDecoder().decode(Settings.self, from: content)
         } catch {
             print("[ERROR] Failed to read User Settings.")
@@ -79,5 +83,13 @@ class Storage {
             print("[ERROR] Failed to create Record.")
         }
         return nil
+    }
+    
+    static func deleteRecord(record: RecordInfo) {
+        do {
+            try record.file.delete()
+        } catch {
+            print("[ERROR] Failed to delete Record.")
+        }
     }
 }

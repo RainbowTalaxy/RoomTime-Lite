@@ -14,6 +14,12 @@ struct TagFormView: View {
     @State private var tagName = ""
     @State private var color = TagColor.all.first!
     
+    let onAdded: (Tag) -> Void
+    
+    init(onAdded: @escaping (Tag) -> Void = { _ in }) {
+        self.onAdded = onAdded
+    }
+    
     var body: some View {
         NavigationView {
             Form {
@@ -48,7 +54,8 @@ struct TagFormView: View {
                 leading: Button("取消") {
                     presentationMode.wrappedValue.dismiss()
                 }, trailing: Button("添加") {
-                    _ = settings.addTag(name: tagName, color: color)
+                    let tag = settings.addTag(name: tagName, color: color)
+                    onAdded(tag)
                     presentationMode.wrappedValue.dismiss()
                 }
             )

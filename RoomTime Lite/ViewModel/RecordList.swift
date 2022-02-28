@@ -14,10 +14,24 @@ class RecordList: ObservableObject {
     
     init(settings: UserSettings) {
         self.settings = settings
-        self.recordInfos = Storage.getRecordsInfo(settings: settings)
+        self.recordInfos = Storage.getRecordsInfo(settings: settings).sorted { r1, r2 in
+            r1.file.name > r2.file.name
+        }
     }
     
     func fresh() {
-        recordInfos = Storage.getRecordsInfo(settings: settings)
+        recordInfos = Storage.getRecordsInfo(settings: settings).sorted { r1, r2 in
+            r1.file.name > r2.file.name
+        }
+    }
+    
+    func createRecord() {
+        _ = Storage.createRecord(settings: settings)
+        fresh()
+    }
+    
+    func removeRecord(record: RecordInfo) {
+        Storage.deleteRecord(record: record)
+        fresh()
     }
 }

@@ -20,13 +20,17 @@ class RecordDetail: ObservableObject {
     
     init(recordInfo: RecordInfo, settings: UserSettings) {
         let record = Storage.readRecord(file: recordInfo.file)
-        self.title = record.title
+        self.title = record.title.trimmed()
         self.authors = record.authors
-        self.tags = settings.tagLirary.filter { tag in
-            record.tagNames.contains { tag.name == $0 }
+        self.tags = record.tagNames.map { tagName in
+            if let tag = settings.tagLirary.first(where: { $0.name == tagName }) {
+                return tag
+            } else {
+                return settings.addTag(name: tagName, color: .random)
+            }
         }
         self.date = record.date
-        self.content = record.content
+        self.content = record.content.trimmed()
         self.settings = settings
         self.file = recordInfo.file
     }
@@ -37,12 +41,33 @@ class RecordDetail: ObservableObject {
     
     func fresh() {
         let record = Storage.readRecord(file: file)
-        self.title = record.title
+        self.title = record.title.trimmed()
         self.authors = record.authors
-        self.tags = settings.tagLirary.filter { tag in
-            record.tagNames.contains { tag.name == $0 }
+        self.tags = record.tagNames.map { tagName in
+            if let tag = settings.tagLirary.first(where: { $0.name == tagName }) {
+                return tag
+            } else {
+                return settings.addTag(name: tagName, color: .random)
+            }
         }
         self.date = record.date
-        self.content = record.content
+        self.content = record.content.trimmed()
+    }
+    
+    func hasTag(tag: Tag) -> Bool {
+        return tags.contains(where: { tag == $0 })
+    }
+    
+    func addTag(tag: Tag) {
+        if tags.contains(where: { tag == $0 }) {
+            return
+        }
+        tags.append(tag)
+    }
+    
+    func removeTag(tag: Tag) {
+        if let index = tags.firstIndex(where: { tag == $0 }) {
+            tags.remove(at: index)
+        }
     }
 }

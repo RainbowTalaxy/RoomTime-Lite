@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 @main
 struct RoomTime_LiteApp: App {
     var body: some Scene {

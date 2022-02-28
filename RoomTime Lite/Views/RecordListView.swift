@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
-import Markdown
-import RoomTime
+import WrappingHStack
 
 struct RecordListView: View {
     @EnvironmentObject var list: RecordList
     @EnvironmentObject var settings: UserSettings
+    
+    let columns = [
+        GridItem(.adaptive(minimum: 0), alignment: .leading)
+      ]
     
     var body: some View {
         NavigationView {
@@ -24,24 +27,35 @@ struct RecordListView: View {
                             Text(info.title)
                                 .font(.title3)
                             
-                            Text(info.date.formatted(date: .numeric, time: .omitted))
+                            Text(info.date.numeric)
                                 .foregroundColor(.secondary)
                                 .padding(.bottom, 7)
                             
-                            AutoWrap(info.tags, id: \.self, hSpacing: 7) { tag in
+                            WrappingHStack(info.tags, spacing: .constant(7), lineSpacing: 7) { tag in
                                 TagMiniView(tag: tag)
-                                    .padding(.bottom, 7)
                             }
                         }
-                        .padding(.top, 7)
+                        .padding(.vertical, 7)
                     }
-
+                }
+                .onDelete { indexs in
+                    for index in indexs {
+                        list.removeRecord(record: list.recordInfos[index])
+                    }
                 }
             }
             .refreshable {
                 list.fresh()
             }
             .navigationTitle("文章")
+            .toolbar {
+                Button {
+                    list.createRecord()
+                } label: {
+                    Image(systemName: "plus")
+                }
+
+            }
         }
         .navigationViewStyle(.stack)
         .onAppear {
