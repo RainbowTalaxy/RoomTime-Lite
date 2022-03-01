@@ -15,6 +15,10 @@ class Storage {
     static let userSettingsFileName = "Settings.yaml"
     static let recordsDirectoryName = "Records"
     
+    static var newFileName: String {
+        "\(UUID())+\(Date()).\(recordFileExtension)"
+    }
+    
     static func getFile(named name: String) throws -> File {
         try document.createFileIfNeeded(withName: name, contents: nil)
     }
@@ -77,7 +81,7 @@ class Storage {
     
     static func createRecord(settings: UserSettings) -> RecordInfo? {
         do {
-            let file = try getFolder(named: recordsDirectoryName).createFile(named: "\(Date()).\(recordFileExtension)")
+            let file = try getFolder(named: recordsDirectoryName).createFile(named: newFileName)
             return RecordInfo(file: file, settings: settings)
         } catch {
             print("[ERROR] Failed to create Record.")

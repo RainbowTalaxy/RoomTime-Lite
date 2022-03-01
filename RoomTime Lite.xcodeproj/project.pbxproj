@@ -159,8 +159,8 @@
 			children = (
 				7EAD756B27C5FA60002F9682 /* UserInfoSettingView.swift */,
 				7EAD756D27C5FC71002F9682 /* TagLibrarySettingView.swift */,
-				7EAD758B27C632A0002F9682 /* TagFormView.swift */,
 				7E93460927C8A37C00C50081 /* TagColorChooseView.swift */,
+				7EAD758B27C632A0002F9682 /* TagFormView.swift */,
 			);
 			path = UserSetting;
 			sourceTree = "<group>";

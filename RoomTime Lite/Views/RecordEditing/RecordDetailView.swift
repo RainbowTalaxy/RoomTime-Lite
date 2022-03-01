@@ -26,34 +26,38 @@ struct RecordDetailView: View {
     var body: some View {
         VStack {
             ScrollView {
-                VStack {
-                    HStack {
-                        if isEditingContent {
+                VStack(spacing: 0) {
+                    if isEditingContent {
+                        HStack {
                             TextField("请输入标题", text: $detail.title)
                                 .font(.system(size: 29, weight: .bold))
-                        } else {
-                            Text(detail.title == "" ? "无标题" : detail.title)
-                                .font(.system(size: 29, weight: .bold))
+                            
+                            Spacer()
                         }
+                        .padding(.horizontal)
                         
-                        Spacer()
-                    }
-                    .padding(.horizontal)
-                    
-                    WrappingHStack(detail.tags, spacing: .constant(7), lineSpacing: 7) { tag in
-                        TagMiniView(tag: tag)
-                    }
-                    .padding(.horizontal)
-                    
-                    if isEditingContent {
                         TextArea(text: $detail.content, extraHeight: 500)
                             .padding(.horizontal)
                     } else {
+                        HStack {
+                            Text(detail.title == "" ? "无标题" : detail.title)
+                                .font(.system(size: 29, weight: .bold))
+                                .padding(0.7)
+                            
+                            Spacer()
+                        }
+                        .padding(.horizontal)
+                        
+                        WrappingHStack(detail.tags, spacing: .constant(7), lineSpacing: 7) { tag in
+                            TagMiniView(tag: tag)
+                        }
+                        .padding()
+                        
                         MarkdownView(text: detail.content == "" ? "无内容" : detail.content) { element in
                             ElementView(element: element)
                         }
-                        .padding(.vertical)
                         .padding(.horizontal)
+                        .padding(.bottom, 30)
                     }
                 }
                 .padding(.vertical, 20)
@@ -89,7 +93,7 @@ struct RecordDetailView: View {
                     } label: {
                         Image(systemName: "info.circle")
                     }
-
+                    
                     Button {
                         isEditingContent = true
                     } label: {

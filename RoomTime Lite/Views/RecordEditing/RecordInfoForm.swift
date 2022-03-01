@@ -30,10 +30,10 @@ struct RecordInfoForm: View {
                 }
             }
 
-            Section {
+//            Section {
                 DatePicker("文章日期", selection: $detail.date, displayedComponents: .date)
                     .datePickerStyle(.graphical)
-            }
+//            }
 
             Section {
                 WrappingHStack(settings.tagLirary, spacing: .constant(9), lineSpacing: 9) { tag in
@@ -56,6 +56,7 @@ struct RecordInfoForm: View {
                 }
             }
         }
+        .listStyle(.insetGrouped)
         .sheet(isPresented: $isSheetVisible) {
             TagFormView()
         }
