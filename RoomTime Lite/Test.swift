@@ -20,7 +20,7 @@ func test() {
 //    let record = Record(raw: lmd)
 //    print(record)
 //    print(record.format)
-    print(Storage.document.path)
+    print("[Document Path]", Storage.document.path)
 }
 
 let lmd = """

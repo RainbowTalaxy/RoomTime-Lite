@@ -29,12 +29,12 @@ struct RecordInfoForm: View {
                     TextField("文章标题", text: $detail.title)
                 }
             }
-
-//            Section {
+            
+            Section {
                 DatePicker("文章日期", selection: $detail.date, displayedComponents: .date)
                     .datePickerStyle(.graphical)
-//            }
-
+            }
+            
             Section {
                 WrappingHStack(settings.tagLirary, spacing: .constant(9), lineSpacing: 9) { tag in
                     TagView(tag: tag)
@@ -48,7 +48,7 @@ struct RecordInfoForm: View {
                         }
                 }
                 .padding(.vertical, 9)
-
+                
                 Button {
                     isSheetVisible = true
                 } label: {
