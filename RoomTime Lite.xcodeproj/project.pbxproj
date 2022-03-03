@@ -48,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E0A624627D052060044BD6A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7E1A9E8727C755CD00FD4558 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		7E1A9E8927C7578D00FD4558 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		7E53ABA227CC648C006A2536 /* RecordInfoForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordInfoForm.swift; sourceTree = "<group>"; };
@@ -124,6 +125,7 @@
 		7EAD753E27C5D9B4002F9682 = {
 			isa = PBXGroup;
 			children = (
+				7E0A624627D052060044BD6A /* README.md */,
 				7EAD755827C5DA27002F9682 /* Packages */,
 				7EAD754927C5D9B4002F9682 /* RoomTime Lite */,
 				7EAD754827C5D9B4002F9682 /* Products */,
