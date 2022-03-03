@@ -26,7 +26,7 @@ class RecordList: ObservableObject {
     }
     
     func createRecord() {
-        _ = Storage.createRecord(settings: settings)
+        Storage.createRecord(settings: settings)
         fresh()
     }
     

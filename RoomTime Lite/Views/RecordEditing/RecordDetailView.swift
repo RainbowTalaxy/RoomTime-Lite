@@ -47,6 +47,15 @@ struct RecordDetailView: View {
                             Spacer()
                         }
                         .padding(.horizontal)
+                        .padding(.bottom)
+                        
+                        if !detail.authors.isEmpty {
+                            HStack {
+                                Text("作者：" + detail.authorsText)
+                                Spacer()
+                            }
+                            .padding(.horizontal)
+                        }
                         
                         WrappingHStack(detail.tags, spacing: .constant(7), lineSpacing: 7) { tag in
                             TagMiniView(tag: tag)
@@ -63,7 +72,6 @@ struct RecordDetailView: View {
                 .padding(.vertical, 20)
             }
             .gesture(DragGesture().onChanged { value in
-                print("Hello")
                 if value.translation.height > 10 {
                     UIApplication.shared.endEditing()
                 }

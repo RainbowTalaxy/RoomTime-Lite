@@ -11,12 +11,21 @@ import Yams
 
 class Storage {
     static let document = Folder.documents!
+    
     static let recordFileExtension = "md"
-    static let userSettingsFileName = "Settings.yaml"
     static let recordsDirectoryName = "Records"
     
-    static var newFileName: String {
-        "\(UUID())+\(Date()).\(recordFileExtension)"
+    static let bookFileExtension = "yaml"
+    static let booksDirectoryName = "Books"
+    
+    static let userSettingsFileName = "Settings.yaml"
+    
+    static var newRecordFileName: String {
+        "\(Date())+\(UUID()).\(recordFileExtension)"
+    }
+    
+    static var newBookFileName: String {
+        "\(Date())+\(UUID()).\(bookFileExtension)"
     }
     
     static func getFile(named name: String) throws -> File {
@@ -26,6 +35,8 @@ class Storage {
     static func getFolder(named name: String) throws -> Folder {
         try document.createSubfolderIfNeeded(withName: name)
     }
+    
+    // MARK: User Setting
     
     static func store(userSettings: Settings) {
         do {
@@ -39,9 +50,10 @@ class Storage {
     static func readUserSettings() -> Settings {
         do {
             let content = try getFile(named: userSettingsFileName).readAsString()
-            if content.trimmed() == "" {
-                store(userSettings: Settings.default)
-                return Settings.default
+            if content.trimmed().isEmpty {
+                let settings = Settings.default
+                store(userSettings: settings)
+                return settings
             }
             return try YAMLDecoder().decode(Settings.self, from: content)
         } catch {
@@ -49,6 +61,8 @@ class Storage {
         }
         return Settings.default
     }
+    
+    // MARK: Record
     
     static func getRecordsInfo(settings: UserSettings) -> [RecordInfo] {
         if let files = (try? getFolder(named: recordsDirectoryName).files) {
@@ -79,14 +93,13 @@ class Storage {
         }
     }
     
-    static func createRecord(settings: UserSettings) -> RecordInfo? {
+    static func createRecord(settings: UserSettings) {
         do {
-            let file = try getFolder(named: recordsDirectoryName).createFile(named: newFileName)
-            return RecordInfo(file: file, settings: settings)
+            let file = try getFolder(named: recordsDirectoryName).createFile(named: newRecordFileName)
+            store(record: Record(title: "", authors: [settings.authorName], date: Date(), tags: [], content: ""), to: file)
         } catch {
             print("[ERROR] Failed to create Record.")
         }
-        return nil
     }
     
     static func deleteRecord(record: RecordInfo) {
@@ -94,6 +107,65 @@ class Storage {
             try record.file.delete()
         } catch {
             print("[ERROR] Failed to delete Record.")
+        }
+    }
+    
+    // MARK: Book
+    
+    static func getBooksInfo(settings: UserSettings) -> [BookInfo] {
+        if let files = (try? getFolder(named: booksDirectoryName).files) {
+            return files.map { BookInfo(file: $0, settings: settings) }
+        }
+        return []
+    }
+    
+    static func readBook(file: File) -> Book {
+        do {
+            let content = try file.readAsString()
+            if content.trimmed().isEmpty {
+                let book = Book.default
+                store(book: book, to: file)
+                return book
+            }
+            return try YAMLDecoder().decode(Book.self, from: content)
+        } catch {
+            print("[ERROR] Failed to read Book from \(file).")
+        }
+        return Book.default
+    }
+    
+    static func store(book: Book, to file: File) {
+        do {
+            try file.write(book.output)
+        } catch {
+            print("[ERROR] Failed to store Book to \(file).")
+        }
+    }
+    
+    static func createBook(book: Book) {
+        do {
+            let file = try getFolder(named: booksDirectoryName).createFile(named: newBookFileName)
+            store(book: book, to: file)
+        } catch {
+            print("[ERROR] Failed to create Book.")
+        }
+    }
+    
+    static func createBook(settings: UserSettings) -> BookInfo? {
+        do {
+            let file = try getFolder(named: booksDirectoryName).createFile(named: newBookFileName)
+            return BookInfo(file: file, settings: settings)
+        } catch {
+            print("[ERROR] Failed to create Book.")
+        }
+        return nil
+    }
+    
+    static func deleteBook(book: BookInfo) {
+        do {
+            try book.file.delete()
+        } catch {
+            print("[ERROR] Failed to delete Book.")
         }
     }
 }

@@ -37,6 +37,14 @@
 		7EAD758827C62346002F9682 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD758727C62346002F9682 /* Storage.swift */; };
 		7EAD758C27C632A0002F9682 /* TagFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD758B27C632A0002F9682 /* TagFormView.swift */; };
 		7EAD758F27C63608002F9682 /* UIColor+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD758E27C63608002F9682 /* UIColor+Color.swift */; };
+		7EF44E6427CF8E2500954775 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF44E6327CF8E2500954775 /* Book.swift */; };
+		7EF44E6627CF960C00954775 /* BookList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF44E6527CF960C00954775 /* BookList.swift */; };
+		7EF44E6A27CF9A7C00954775 /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF44E6927CF9A7C00954775 /* BookDetailView.swift */; };
+		7EF44E6C27CF9A9800954775 /* BookDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF44E6B27CF9A9800954775 /* BookDetail.swift */; };
+		7EF44E6E27CFA24E00954775 /* RecordInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF44E6D27CFA24E00954775 /* RecordInfoView.swift */; };
+		7EF44E7027CFA47600954775 /* BookInfoForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF44E6F27CFA47600954775 /* BookInfoForm.swift */; };
+		7EF44E7227CFAA5300954775 /* BookEditingForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF44E7127CFAA5300954775 /* BookEditingForm.swift */; };
+		7EF44E7427CFB0F600954775 /* AuthorForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF44E7327CFB0F600954775 /* AuthorForm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +76,14 @@
 		7EAD758727C62346002F9682 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		7EAD758B27C632A0002F9682 /* TagFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagFormView.swift; sourceTree = "<group>"; };
 		7EAD758E27C63608002F9682 /* UIColor+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Color.swift"; sourceTree = "<group>"; };
+		7EF44E6327CF8E2500954775 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		7EF44E6527CF960C00954775 /* BookList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookList.swift; sourceTree = "<group>"; };
+		7EF44E6927CF9A7C00954775 /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
+		7EF44E6B27CF9A9800954775 /* BookDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetail.swift; sourceTree = "<group>"; };
+		7EF44E6D27CFA24E00954775 /* RecordInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordInfoView.swift; sourceTree = "<group>"; };
+		7EF44E6F27CFA47600954775 /* BookInfoForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoForm.swift; sourceTree = "<group>"; };
+		7EF44E7127CFAA5300954775 /* BookEditingForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEditingForm.swift; sourceTree = "<group>"; };
+		7EF44E7327CFB0F600954775 /* AuthorForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				7E1A9E8727C755CD00FD4558 /* TagView.swift */,
+				7EF44E6D27CFA24E00954775 /* RecordInfoView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -99,6 +116,7 @@
 			children = (
 				7E93461027C8C0CF00C50081 /* RecordDetailView.swift */,
 				7E53ABA227CC648C006A2536 /* RecordInfoForm.swift */,
+				7EF44E7327CFB0F600954775 /* AuthorForm.swift */,
 			);
 			path = RecordEditing;
 			sourceTree = "<group>";
@@ -171,6 +189,7 @@
 				7EAD757427C60CD2002F9682 /* Tag.swift */,
 				7EAD758127C621B1002F9682 /* Settings.swift */,
 				7E1A9E8927C7578D00FD4558 /* Record.swift */,
+				7EF44E6327CF8E2500954775 /* Book.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,6 +202,7 @@
 				7EAD756127C5E15A002F9682 /* LibraryListView.swift */,
 				7EAD756327C5E170002F9682 /* UserSettingView.swift */,
 				7E93460B27C8AE4300C50081 /* RecordEditing */,
+				7EF44E6827CF9A4200954775 /* BookEditing */,
 				7EAD756A27C5F988002F9682 /* UserSetting */,
 			);
 			path = Views;
@@ -194,6 +214,8 @@
 				7EAD758427C6228C002F9682 /* UserSettings.swift */,
 				7E93460527C87FC000C50081 /* RecordList.swift */,
 				7E93460E27C8AF0600C50081 /* RecordDetail.swift */,
+				7EF44E6527CF960C00954775 /* BookList.swift */,
+				7EF44E6B27CF9A9800954775 /* BookDetail.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -214,6 +236,16 @@
 				7E53ABA927CCC996006A2536 /* UIApplication.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		7EF44E6827CF9A4200954775 /* BookEditing */ = {
+			isa = PBXGroup;
+			children = (
+				7EF44E6927CF9A7C00954775 /* BookDetailView.swift */,
+				7EF44E6F27CFA47600954775 /* BookInfoForm.swift */,
+				7EF44E7127CFAA5300954775 /* BookEditingForm.swift */,
+			);
+			path = BookEditing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,25 +335,33 @@
 				7E53ABAA27CCC996006A2536 /* UIApplication.swift in Sources */,
 				7EAD757527C60CD2002F9682 /* Tag.swift in Sources */,
 				7EAD756427C5E170002F9682 /* UserSettingView.swift in Sources */,
+				7EF44E7027CFA47600954775 /* BookInfoForm.swift in Sources */,
 				7E93460627C87FC000C50081 /* RecordList.swift in Sources */,
 				7EAD757A27C61860002F9682 /* Test.swift in Sources */,
 				7EAD756227C5E15A002F9682 /* LibraryListView.swift in Sources */,
 				7EAD758227C621B1002F9682 /* Settings.swift in Sources */,
 				7EAD758827C62346002F9682 /* Storage.swift in Sources */,
+				7EF44E6427CF8E2500954775 /* Book.swift in Sources */,
 				7E93460827C8883700C50081 /* Date.swift in Sources */,
 				7E1A9E8A27C7578D00FD4558 /* Record.swift in Sources */,
 				7EAD758C27C632A0002F9682 /* TagFormView.swift in Sources */,
+				7EF44E6627CF960C00954775 /* BookList.swift in Sources */,
 				7EAD758F27C63608002F9682 /* UIColor+Color.swift in Sources */,
+				7EF44E6C27CF9A9800954775 /* BookDetail.swift in Sources */,
 				7EAD756E27C5FC71002F9682 /* TagLibrarySettingView.swift in Sources */,
+				7EF44E7227CFAA5300954775 /* BookEditingForm.swift in Sources */,
 				7E53ABA327CC648C006A2536 /* RecordInfoForm.swift in Sources */,
+				7EF44E6E27CFA24E00954775 /* RecordInfoView.swift in Sources */,
 				7EAD754D27C5D9B4002F9682 /* ContentView.swift in Sources */,
 				7EAD754B27C5D9B4002F9682 /* App.swift in Sources */,
 				7E93461127C8C0CF00C50081 /* RecordDetailView.swift in Sources */,
 				7E1A9E8827C755CD00FD4558 /* TagView.swift in Sources */,
+				7EF44E7427CFB0F600954775 /* AuthorForm.swift in Sources */,
 				7EAD756C27C5FA60002F9682 /* UserInfoSettingView.swift in Sources */,
 				7E93460A27C8A37C00C50081 /* TagColorChooseView.swift in Sources */,
 				7EAD756027C5E13F002F9682 /* RecordListView.swift in Sources */,
 				7E93460F27C8AF0600C50081 /* RecordDetail.swift in Sources */,
+				7EF44E6A27CF9A7C00954775 /* BookDetailView.swift in Sources */,
 				7EAD758527C6228C002F9682 /* UserSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,7 +15,8 @@ struct RecordInfoForm: View {
     
     @ObservedObject private var detail: RecordDetail
     
-    @State private var isSheetVisible = false
+    @State private var isAuthorSheetVisible = false
+    @State private var isTagSheetVisible = false
     
     init(detail: RecordDetail) {
         self.detail = detail
@@ -28,6 +29,25 @@ struct RecordInfoForm: View {
                     Text("标题")
                     TextField("文章标题", text: $detail.title)
                 }
+            }
+            
+            Section {
+                ForEach(detail.authors, id: \.self) { author in
+                    Text(author)
+                }
+                .onDelete { indexs in
+                    for index in indexs {
+                        detail.authors.remove(at: index)
+                    }
+                }
+                Button {
+                    isAuthorSheetVisible = true
+                } label: {
+                    Label("添加作者", systemImage: "plus.circle")
+                }
+
+            } header: {
+                Text("作者")
             }
             
             Section {
@@ -50,15 +70,19 @@ struct RecordInfoForm: View {
                 .padding(.vertical, 9)
                 
                 Button {
-                    isSheetVisible = true
+                    isTagSheetVisible = true
                 } label: {
                     Label("添加新标签", systemImage: "plus.circle")
                 }
+            } header: {
+                Text("标签")
             }
         }
-        .listStyle(.insetGrouped)
-        .sheet(isPresented: $isSheetVisible) {
+        .sheet(isPresented: $isTagSheetVisible) {
             TagFormView()
+        }
+        .sheet(isPresented: $isAuthorSheetVisible) {
+            AuthorForm(detail: detail)
         }
         .navigationTitle("文章信息")
         .navigationBarTitleDisplayMode(.inline)

@@ -12,10 +12,6 @@ struct RecordListView: View {
     @EnvironmentObject var list: RecordList
     @EnvironmentObject var settings: UserSettings
     
-    let columns = [
-        GridItem(.adaptive(minimum: 0), alignment: .leading)
-      ]
-    
     var body: some View {
         NavigationView {
             List {
@@ -23,19 +19,7 @@ struct RecordListView: View {
                     NavigationLink {
                         RecordDetailView(recordInfo: info, settings: settings)
                     } label: {
-                        VStack(alignment: .leading, spacing: 0) {
-                            Text(info.title)
-                                .font(.title3)
-                            
-                            Text(info.date.numeric)
-                                .foregroundColor(.secondary)
-                                .padding(.bottom, 7)
-                            
-                            WrappingHStack(info.tags, spacing: .constant(7), lineSpacing: 7) { tag in
-                                TagMiniView(tag: tag)
-                            }
-                        }
-                        .padding(.vertical, 7)
+                        RecordInfoView(info: info)
                     }
                 }
                 .onDelete { indexs in

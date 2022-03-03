@@ -35,6 +35,10 @@ class RecordDetail: ObservableObject {
         self.file = recordInfo.file
     }
     
+    var authorsText: String {
+        authors.joined(separator: ", ")
+    }
+    
     func store() {
         Storage.store(record: Record(title: title, authors: authors, date: date, tags: tags, content: content), to: file)
     }
@@ -55,11 +59,11 @@ class RecordDetail: ObservableObject {
     }
     
     func hasTag(tag: Tag) -> Bool {
-        return tags.contains(where: { tag == $0 })
+        return tags.contains(tag)
     }
     
     func addTag(tag: Tag) {
-        if tags.contains(where: { tag == $0 }) {
+        if tags.contains(tag) {
             return
         }
         tags.append(tag)
