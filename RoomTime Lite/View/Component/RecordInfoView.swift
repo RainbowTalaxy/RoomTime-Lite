@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import WrappingHStack
 
 struct RecordInfoView: View {
     let info: RecordInfo
@@ -20,8 +19,12 @@ struct RecordInfoView: View {
                 .foregroundColor(.secondary)
                 .padding(.bottom, 7)
             
-            WrappingHStack(info.tags, spacing: .constant(7), lineSpacing: 7) { tag in
-                TagMiniView(tag: tag)
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    ForEach(info.tags) { tag in
+                        TagMiniView(tag: tag)
+                    }
+                }
             }
         }
         .padding(.vertical, 7)

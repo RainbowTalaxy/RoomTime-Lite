@@ -17,6 +17,7 @@ struct RecordInfoForm: View {
     
     @State private var isAuthorSheetVisible = false
     @State private var isTagSheetVisible = false
+    @State private var isKeywordSheetVisible = false
     
     init(detail: RecordDetail) {
         self.detail = detail
@@ -49,6 +50,9 @@ struct RecordInfoForm: View {
             } header: {
                 Text("作者")
             }
+            .sheet(isPresented: $isAuthorSheetVisible) {
+                AuthorForm(detail: detail)
+            }
             
             Section {
                 DatePicker("文章日期", selection: $detail.date, displayedComponents: .date)
@@ -56,33 +60,46 @@ struct RecordInfoForm: View {
             }
             
             Section {
-                WrappingHStack(settings.tagLirary, spacing: .constant(9), lineSpacing: 9) { tag in
-                    TagView(tag: tag)
-                        .opacity(detail.hasTag(tag: tag) ? 1 : 0.3)
-                        .onTapGesture {
-                            if detail.hasTag(tag: tag) {
-                                detail.removeTag(tag: tag)
-                            } else {
-                                detail.addTag(tag: tag)
+                if settings.tagLirary.isEmpty {
+                    Text("无标签")
+                        .foregroundColor(.secondary)
+                } else {
+                    WrappingHStack(settings.tagLirary, spacing: .constant(9), lineSpacing: 9) { tag in
+                        TagView(tag: tag)
+                            .opacity(detail.hasTag(tag: tag) ? 1 : 0.3)
+                            .onTapGesture {
+                                if detail.hasTag(tag: tag) {
+                                    detail.removeTag(tag: tag)
+                                } else {
+                                    detail.addTag(tag: tag)
+                                }
                             }
-                        }
+                    }
+                    .padding(.vertical, 9)
                 }
-                .padding(.vertical, 9)
                 
                 Button {
                     isTagSheetVisible = true
                 } label: {
                     Label("添加新标签", systemImage: "plus.circle")
                 }
+                
+                Button {
+                    isKeywordSheetVisible = true
+                } label: {
+                    Label("从文章中获取关键词", systemImage: "plus.circle")
+                }
             } header: {
                 Text("标签")
             }
-        }
-        .sheet(isPresented: $isTagSheetVisible) {
-            TagFormView()
-        }
-        .sheet(isPresented: $isAuthorSheetVisible) {
-            AuthorForm(detail: detail)
+            .sheet(isPresented: $isTagSheetVisible) {
+                TagFormView { tag in
+                    detail.addTag(tag: tag)
+                }
+            }
+            .sheet(isPresented: $isKeywordSheetVisible) {
+                KeywordSelectForm(detail: detail)
+            }
         }
         .navigationTitle("文章信息")
         .navigationBarTitleDisplayMode(.inline)

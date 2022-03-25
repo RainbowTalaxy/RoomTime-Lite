@@ -16,9 +16,10 @@ class RecordDetail: ObservableObject {
     @Published var content: String
     
     let settings: UserSettings
+    let list: RecordList
     let file: File
     
-    init(recordInfo: RecordInfo, settings: UserSettings) {
+    init(recordInfo: RecordInfo, list: RecordList, settings: UserSettings) {
         let record = Storage.readRecord(file: recordInfo.file)
         self.title = record.title.trimmed()
         self.authors = record.authors
@@ -33,6 +34,7 @@ class RecordDetail: ObservableObject {
         self.content = record.content.trimmed()
         self.settings = settings
         self.file = recordInfo.file
+        self.list = list
     }
     
     var authorsText: String {
@@ -66,12 +68,22 @@ class RecordDetail: ObservableObject {
         if tags.contains(tag) {
             return
         }
+        if !settings.tagLirary.contains(tag) {
+            settings.addTag(tag: tag)
+        }
         tags.append(tag)
+        store()
     }
     
     func removeTag(tag: Tag) {
         if let index = tags.firstIndex(where: { tag == $0 }) {
             tags.remove(at: index)
         }
+    }
+    
+    var keywords: [String] {
+        let docs = list.recordInfos.map { Storage.readRecord(from: $0).content }
+        let target = Storage.readRecord(file: file).content
+        return KeywordExtraction.getKeywords(target: target, allDocuments: docs)
     }
 }

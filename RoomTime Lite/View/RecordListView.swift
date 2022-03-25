@@ -17,7 +17,7 @@ struct RecordListView: View {
             List {
                 ForEach(list.recordInfos) { info in
                     NavigationLink {
-                        RecordDetailView(recordInfo: info, settings: settings)
+                        RecordDetailView(recordInfo: info, list: list, settings: settings)
                     } label: {
                         RecordInfoView(info: info)
                     }

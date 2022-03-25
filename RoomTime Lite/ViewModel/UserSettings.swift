@@ -17,6 +17,10 @@ class UserSettings: ObservableObject {
         self.tagLirary = settings.tagLirary
     }
     
+    func addTag(tag: Tag) {
+        _ = addTag(name: tag.name, color: tag.color)
+    }
+    
     func addTag(name: String, color: TagColor) -> Tag {
         if let tag = tagLirary.first(where: { $0.name == name }) {
             return tag

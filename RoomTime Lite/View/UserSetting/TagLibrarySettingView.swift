@@ -29,7 +29,9 @@ struct TagLibrarySettingView: View {
             }
         }
         .sheet(isPresented: $isSheetVisible) {
-            TagFormView()
+            TagFormView { tag in
+                settings.addTag(tag: tag)
+            }
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("标签库")

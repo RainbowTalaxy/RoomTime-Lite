@@ -19,22 +19,13 @@ struct RecordDetailView: View {
     
     @State private var isEditingContent = false
     
-    init(recordInfo: RecordInfo, settings: UserSettings) {
-        self.detail = RecordDetail(recordInfo: recordInfo, settings: settings)
+    init(recordInfo: RecordInfo, list: RecordList, settings: UserSettings) {
+        self.detail = RecordDetail(recordInfo: recordInfo, list: list, settings: settings)
     }
     
     var body: some View {
         VStack {
             ScrollView {
-                Button {
-                    let docs = list.recordInfos.map { Storage.readRecord(from: $0).content }
-                    let target = Storage.readRecord(file: detail.file).content
-                    let keywords = KeywordExtraction.getKeywords(target: target, allDocuments: docs)
-                    print(keywords)
-                } label: {
-                    Text("关键字")
-                }
-
                 VStack(spacing: 0) {
                     if isEditingContent {
                         HStack {

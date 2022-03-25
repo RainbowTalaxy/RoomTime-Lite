@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TagFormView: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var settings: UserSettings
     
     @State private var tagName = ""
     @State private var color = TagColor.all.first!
@@ -54,8 +53,7 @@ struct TagFormView: View {
                 leading: Button("取消") {
                     presentationMode.wrappedValue.dismiss()
                 }, trailing: Button("添加") {
-                    let tag = settings.addTag(name: tagName, color: color)
-                    onAdded(tag)
+                    onAdded(Tag(name: tagName, color: color))
                     presentationMode.wrappedValue.dismiss()
                 }
             )

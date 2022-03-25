@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BookDetailView: View {
+    @EnvironmentObject var recordList: RecordList
     @EnvironmentObject var list: BookList
     @EnvironmentObject var settings: UserSettings
     
@@ -23,7 +24,7 @@ struct BookDetailView: View {
         List {
             ForEach(detail.records) { record in
                 NavigationLink {
-                    RecordDetailView(recordInfo: record, settings: settings)
+                    RecordDetailView(recordInfo: record, list: recordList, settings: settings)
                 } label: {
                     RecordInfoView(info: record)
                 }

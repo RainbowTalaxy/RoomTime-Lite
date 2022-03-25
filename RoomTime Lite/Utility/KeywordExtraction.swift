@@ -7,68 +7,112 @@
 
 import Foundation
 import NaturalLanguage
-
-/*
- TODO:
-    1. 筛词
-    2. 加权
- */
+import Markdown
 
 class KeywordExtraction {
-    static func getWordCounts(target: String) -> [String: Int] {
-        var dict: [String: Int] = [:]
-        let tokenizer = NLTokenizer(unit: .word)
-        tokenizer.string = target
-        tokenizer.enumerateTokens(in: target.startIndex..<target.endIndex) { tokenRange, _ in
-            let term = String(target[tokenRange])
-            if let freq = dict[term] {
-                dict[term] = freq + 1
-            } else {
-                dict[term] = 1
+    static func getWordCounts(target: String) -> [String: Double] {
+        var dict: [String: Double] = [:]
+        let resolver = Markdown.Resolver()
+        let elements = resolver.render(text: target)
+        elements.forEach { element in
+            dict.merge(getWordCounts(element: element)) { d1, d2 in
+                d1 + d2
+            }
+        }
+        return dict
+    }
+    
+    static let nouseTags: [NLTag] = [.adjective, .adverb, .particle, .number, .pronoun, .preposition, .conjunction]
+    
+    static func getWordCounts(text: String, weight: Double = 1) -> [String: Double] {
+        var dict: [String: Double] = [:]
+        let tagger = NLTagger(tagSchemes: [.lexicalClass])
+        tagger.string = text
+        let options: NLTagger.Options = [.omitPunctuation, .omitWhitespace]
+        tagger.enumerateTags(in: text.startIndex..<text.endIndex, unit: .word, scheme: .lexicalClass, options: options) { tag, tokenRange in
+            if let tag = tag, !nouseTags.contains(tag) {
+                let term = String(text[tokenRange]).lowercased()
+                if let freq = dict[term] {
+                    dict[term] = freq + weight
+                } else {
+                    dict[term] = weight
+                }
             }
             return true
         }
         return dict
     }
     
-    static func getAllWordCounts(documents: [String]) -> [String: Int] {
-        documents.map { document in
-            getWordCounts(target: document)
-        }.reduce([:]) { prevResult, next in
-            prevResult.merging(next) { $1 }
+    static func getWordCounts(element: Markdown.Element, weight: Double = 1) -> [String: Double] {
+        var dict: [String: Double] = [:]
+        switch element {
+        case let fm as FrontMatterElement:
+            if let title = fm.properties["title"] as? String {
+                dict = getWordCounts(text: title , weight: weight * 6)
+            }
+        case let header as HeaderElement:
+            dict = getWordCounts(text: header.title, weight: weight * (1 + Double(7 - header.level) * 0.5))
+        case let quote as QuoteElement:
+            quote.elements.forEach { element in
+                dict.merge(getWordCounts(element: element, weight: weight * 0.7)) { d1, d2 in
+                    d1 + d2
+                }
+            }
+        case let orderList as OrderListElement:
+            orderList.items.forEach { elements in
+                elements.forEach { element in
+                    dict.merge(getWordCounts(element: element)) { d1, d2 in
+                        d1 + d2
+                    }
+                }
+            }
+        case let unorderList as UnorderListElement:
+            unorderList.items.forEach { elements in
+                elements.forEach { element in
+                    dict.merge(getWordCounts(element: element)) { d1, d2 in
+                        d1 + d2
+                    }
+                }
+            }
+        case let table as TableElement:
+            table.heads.forEach { head in
+                dict.merge(getWordCounts(text: head)) { d1, d2 in
+                    d1 + d2
+                }
+            }
+            table.rows.forEach { row in
+                row.forEach { item in
+                    dict.merge(getWordCounts(text: item)) { d1, d2 in
+                        d1 + d2
+                    }
+                }
+            }
+        case let line as LineElement:
+            dict = getWordCounts(text: line.text)
+        default:
+            break
         }
+        return dict
     }
     
-    static func getWords(target: String) -> Set<String> {
-        var set: Set<String> = []
-        let tokenizer = NLTokenizer(unit: .word)
-        tokenizer.string = target
-        tokenizer.enumerateTokens(in: target.startIndex..<target.endIndex) { tokenRange, _ in
-            let term = String(target[tokenRange])
-            set.insert(term)
-            return true
-        }
-        return set
-    }
-    
-    static func calc_TF_IDF(documentDict: [String: Int], allDicts: Array<[String: Int]>) -> [String: Double] {
+    static func calc_TF_IDF(documentDict: [String: Double], allDicts: Array<[String: Double]>) -> [String: Double] {
         var result: [String: Double] = [:]
         for (word, count) in documentDict {
             let documentWordCount = documentDict.reduce(0) { prev, pair in
                 return prev + pair.value
             }
-            let termFrequency = count.double / documentWordCount.double
+            let termFrequency = count / documentWordCount
             let documentAppearCount = allDicts.reduce(0) { prev, dict in
-                return prev + (dict[word] ?? 0)
+                return prev + (min(dict[word] ?? 0, 1))
             }
-            let documentFrequency = documentAppearCount.double / allDicts.count.double
-            let inverseDocumentFrequence = log(allDicts.count.double / documentFrequency) + 1
+            let documentFrequency = documentAppearCount / allDicts.count.double
+            let inverseDocumentFrequence = log(allDicts.count.double / documentFrequency + 0.125) + 1
             result[word] = termFrequency * inverseDocumentFrequence
         }
         return result
     }
     
-    static func getKeywords(target: String, allDocuments: [String], num: Int = 10) -> [String] {
+    static func getKeywords(target: String, allDocuments: [String], num: Int = 8) -> [String] {
         let keywordStats = calc_TF_IDF(documentDict: getWordCounts(target: target), allDicts: allDocuments.map(getWordCounts))
         let keywordRank = Array(keywordStats).sorted { keyword1, keyword2 in
             keyword1.value > keyword2.value
