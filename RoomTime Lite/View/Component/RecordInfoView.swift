@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RoomTime
 
 struct RecordInfoView: View {
     let info: RecordInfo
@@ -19,12 +20,8 @@ struct RecordInfoView: View {
                 .foregroundColor(.secondary)
                 .padding(.bottom, 7)
             
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    ForEach(info.tags) { tag in
-                        TagMiniView(tag: tag)
-                    }
-                }
+            AutoWrap(info.tags, id: \.id, vSpacing: 5, hSpacing: 5) { tag in
+                TagMiniView(tag: tag)
             }
         }
         .padding(.vertical, 7)

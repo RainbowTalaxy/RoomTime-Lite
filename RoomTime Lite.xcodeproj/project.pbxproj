@@ -11,7 +11,6 @@
 		7E1A9E8A27C7578D00FD4558 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1A9E8927C7578D00FD4558 /* Record.swift */; };
 		7E2D8F3427ED853600EA892C /* KeywordSelectForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2D8F3327ED853600EA892C /* KeywordSelectForm.swift */; };
 		7E53ABA327CC648C006A2536 /* RecordInfoForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E53ABA227CC648C006A2536 /* RecordInfoForm.swift */; };
-		7E53ABA827CC7DEF006A2536 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 7E53ABA727CC7DEF006A2536 /* WrappingHStack */; };
 		7E53ABAA27CCC996006A2536 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E53ABA927CCC996006A2536 /* UIApplication.swift */; };
 		7E93460627C87FC000C50081 /* RecordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E93460527C87FC000C50081 /* RecordList.swift */; };
 		7E93460827C8883700C50081 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E93460727C8883700C50081 /* Date.swift */; };
@@ -102,7 +101,6 @@
 				7EAD756927C5E429002F9682 /* RoomTime in Frameworks */,
 				7EAD757D27C61DB9002F9682 /* Yams in Frameworks */,
 				7EAD756727C5E429002F9682 /* Markdown in Frameworks */,
-				7E53ABA827CC7DEF006A2536 /* WrappingHStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +278,6 @@
 				7EAD756827C5E429002F9682 /* RoomTime */,
 				7EAD757C27C61DB9002F9682 /* Yams */,
 				7EAD757F27C62145002F9682 /* Files */,
-				7E53ABA727CC7DEF006A2536 /* WrappingHStack */,
 			);
 			productName = "RoomTime Lite";
 			productReference = 7EAD754727C5D9B4002F9682 /* RoomTime Lite.app */;
@@ -315,7 +312,6 @@
 				7EAD756527C5E429002F9682 /* XCRemoteSwiftPackageReference "RoomTime" */,
 				7EAD757B27C61DB9002F9682 /* XCRemoteSwiftPackageReference "Yams" */,
 				7EAD757E27C62145002F9682 /* XCRemoteSwiftPackageReference "Files" */,
-				7E53ABA627CC7DEF006A2536 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 			);
 			productRefGroup = 7EAD754827C5D9B4002F9682 /* Products */;
 			projectDirPath = "";
@@ -587,14 +583,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7E53ABA627CC7DEF006A2536 /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dkk/WrappingHStack.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 		7EAD756527C5E429002F9682 /* XCRemoteSwiftPackageReference "RoomTime" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "file:///Users/talaxy/Desktop/repos/RoomTime";
@@ -622,11 +610,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7E53ABA727CC7DEF006A2536 /* WrappingHStack */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7E53ABA627CC7DEF006A2536 /* XCRemoteSwiftPackageReference "WrappingHStack" */;
-			productName = WrappingHStack;
-		};
 		7EAD756627C5E429002F9682 /* Markdown */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7EAD756527C5E429002F9682 /* XCRemoteSwiftPackageReference "RoomTime" */;

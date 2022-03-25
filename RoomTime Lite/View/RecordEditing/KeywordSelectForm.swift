@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import WrappingHStack
+import RoomTime
 
 struct KeywordSelectForm: View {
     @Environment(\.presentationMode) var presentationMode
@@ -31,7 +31,7 @@ struct KeywordSelectForm: View {
         NavigationView {
             Form {
                 Section {
-                    WrappingHStack(standbyTags, spacing: .constant(9), lineSpacing: 9) { tag in
+                    AutoWrap(standbyTags, id: \.id, vSpacing: 9, hSpacing: 9) { tag in
                         TagView(tag: tag)
                             .opacity(tags.contains(tag) ? 1 : 0.3)
                             .onTapGesture {

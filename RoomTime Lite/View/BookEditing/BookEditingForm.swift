@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import WrappingHStack
+import RoomTime
 
 struct BookEditingForm: View {
     @Environment(\.presentationMode) var presentationMode
@@ -28,7 +28,7 @@ struct BookEditingForm: View {
                 }
                 
                 Section {
-                    WrappingHStack(settings.tagLirary, spacing: .constant(9), lineSpacing: 9) { tag in
+                    AutoWrap(settings.tagLirary, id: \.id, vSpacing: 9, hSpacing: 9) { tag in
                         TagView(tag: tag)
                             .opacity(detail.tags.contains(tag) ? 1 : 0.3)
                             .onTapGesture {

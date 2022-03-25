@@ -19,6 +19,7 @@ struct TagView: View {
                 RoundedRectangle(cornerRadius: 13)
                     .fill(tag.color.value)
             )
+            .fixedSize()
     }
 }
 
@@ -35,5 +36,6 @@ struct TagMiniView: View {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(tag.color.value)
             )
+            .fixedSize()
     }
 }

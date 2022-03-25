@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RoomTime
 
 struct LibraryListView: View {
     @EnvironmentObject var recordList: RecordList
@@ -27,12 +28,8 @@ struct LibraryListView: View {
                                 .font(.title3)
                                 .padding(.bottom, 7)
                             
-                            ScrollView(.horizontal, showsIndicators: false) {
-                                HStack {
-                                    ForEach(info.tags) { tag in
-                                        TagMiniView(tag: tag)
-                                    }
-                                }
+                            AutoWrap(info.tags, id: \.id, vSpacing: 5, hSpacing: 5) { tag in
+                                TagMiniView(tag: tag)
                             }
                         }
                         .padding(.vertical, 7)

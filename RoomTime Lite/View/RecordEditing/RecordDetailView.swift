@@ -8,7 +8,6 @@
 import SwiftUI
 import Markdown
 import RoomTime
-import WrappingHStack
 
 struct RecordDetailView: View {
     @EnvironmentObject var list: RecordList
@@ -57,7 +56,7 @@ struct RecordDetailView: View {
                             .padding(.horizontal)
                         }
                         
-                        WrappingHStack(detail.tags, spacing: .constant(7), lineSpacing: 7) { tag in
+                        AutoWrap(detail.tags, id: \.id, vSpacing: 7, hSpacing: 7) { tag in
                             TagMiniView(tag: tag)
                         }
                         .padding()

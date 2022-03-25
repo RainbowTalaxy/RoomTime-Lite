@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import WrappingHStack
 import RoomTime
 
 struct RecordInfoForm: View {
@@ -64,7 +63,7 @@ struct RecordInfoForm: View {
                     Text("无标签")
                         .foregroundColor(.secondary)
                 } else {
-                    WrappingHStack(settings.tagLirary, spacing: .constant(9), lineSpacing: 9) { tag in
+                    AutoWrap(settings.tagLirary, id: \.id, vSpacing: 10, hSpacing: 10) { tag in
                         TagView(tag: tag)
                             .opacity(detail.hasTag(tag: tag) ? 1 : 0.3)
                             .onTapGesture {
@@ -75,7 +74,7 @@ struct RecordInfoForm: View {
                                 }
                             }
                     }
-                    .padding(.vertical, 9)
+                    .padding(.vertical, 10)
                 }
                 
                 Button {
