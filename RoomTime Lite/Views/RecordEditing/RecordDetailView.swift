@@ -12,7 +12,7 @@ import WrappingHStack
 
 struct RecordDetailView: View {
     @EnvironmentObject var list: RecordList
-    
+
     @ObservedObject private var detail: RecordDetail
     
     @FocusState private var nameIsFocused: Bool
@@ -26,6 +26,15 @@ struct RecordDetailView: View {
     var body: some View {
         VStack {
             ScrollView {
+                Button {
+                    let docs = list.recordInfos.map { Storage.readRecord(from: $0).content }
+                    let target = Storage.readRecord(file: detail.file).content
+                    let keywords = KeywordExtraction.getKeywords(target: target, allDocuments: docs)
+                    print(keywords)
+                } label: {
+                    Text("关键字")
+                }
+
                 VStack(spacing: 0) {
                     if isEditingContent {
                         HStack {

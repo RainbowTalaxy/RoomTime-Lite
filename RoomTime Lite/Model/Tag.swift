@@ -27,7 +27,9 @@ enum TagColor: String, Codable, Identifiable {
              gray
     ]
     
-    static var random = all.randomElement() ?? .red
+    static var random: TagColor {
+        all.randomElement() ?? .red
+    }
     
     var id: String {
         self.rawValue
