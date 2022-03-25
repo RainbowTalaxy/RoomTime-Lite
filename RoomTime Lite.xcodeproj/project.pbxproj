@@ -150,7 +150,7 @@
 				7EAD754A27C5D9B4002F9682 /* App.swift */,
 				7EAD757927C6185F002F9682 /* Test.swift */,
 				7EAD754C27C5D9B4002F9682 /* ContentView.swift */,
-				7EAD757327C60C89002F9682 /* Views */,
+				7EAD757327C60C89002F9682 /* View */,
 				7EAD758327C62258002F9682 /* ViewModel */,
 				7EAD757027C605EE002F9682 /* Model */,
 				7EAD758627C62329002F9682 /* Utility */,
@@ -200,7 +200,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		7EAD757327C60C89002F9682 /* Views */ = {
+		7EAD757327C60C89002F9682 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				7E1A9E8627C755A700FD4558 /* Component */,
@@ -211,7 +211,7 @@
 				7EF44E6827CF9A4200954775 /* BookEditing */,
 				7EAD756A27C5F988002F9682 /* UserSetting */,
 			);
-			path = Views;
+			path = View;
 			sourceTree = "<group>";
 		};
 		7EAD758327C62258002F9682 /* ViewModel */ = {
@@ -291,7 +291,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					7EAD754627C5D9B4002F9682 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -383,6 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -444,6 +445,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
