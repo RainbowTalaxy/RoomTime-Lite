@@ -81,9 +81,9 @@ class RecordDetail: ObservableObject {
         }
     }
     
-    var keywords: [String] {
+    lazy var keywords: [String] = {
         let docs = list.recordInfos.map { Storage.readRecord(from: $0).content }
         let target = Storage.readRecord(file: file).content
         return KeywordExtraction.getKeywords(target: target, allDocuments: docs)
-    }
+    }()
 }

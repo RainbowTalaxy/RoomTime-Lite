@@ -22,9 +22,17 @@ class KeywordExtraction {
         return dict
     }
     
-    static let nouseTags: [NLTag] = [.adjective, .adverb, .particle, .number, .pronoun, .preposition, .conjunction]
+    static let nouseTags: [NLTag] = [.adjective, .adverb, .particle, .number, .pronoun, .preposition, .conjunction, .verb]
     
     static func getWordCounts(text: String, weight: Double = 1) -> [String: Double] {
+        var set: Set<String> = []
+        let tokenizer = NLTokenizer(unit: .word)
+        tokenizer.string = text
+        tokenizer.enumerateTokens(in: text.startIndex..<text.endIndex) { tokenRange, _ in
+            let term = String(text[tokenRange]).lowercased()
+            set.insert(term)
+            return true
+        }
         var dict: [String: Double] = [:]
         let tagger = NLTagger(tagSchemes: [.lexicalClass])
         tagger.string = text
@@ -32,10 +40,12 @@ class KeywordExtraction {
         tagger.enumerateTags(in: text.startIndex..<text.endIndex, unit: .word, scheme: .lexicalClass, options: options) { tag, tokenRange in
             if let tag = tag, !nouseTags.contains(tag) {
                 let term = String(text[tokenRange]).lowercased()
-                if let freq = dict[term] {
-                    dict[term] = freq + weight
-                } else {
-                    dict[term] = weight
+                if set.contains(term) {
+                    if let freq = dict[term] {
+                        dict[term] = freq + weight
+                    } else {
+                        dict[term] = weight
+                    }
                 }
             }
             return true
@@ -112,8 +122,9 @@ class KeywordExtraction {
         return result
     }
     
-    static func getKeywords(target: String, allDocuments: [String], num: Int = 8) -> [String] {
+    static func getKeywords(target: String, allDocuments: [String], num: Int = 15) -> [String] {
         let keywordStats = calc_TF_IDF(documentDict: getWordCounts(target: target), allDicts: allDocuments.map(getWordCounts))
+        print("Hello", keywordStats)
         let keywordRank = Array(keywordStats).sorted { keyword1, keyword2 in
             keyword1.value > keyword2.value
         }.map { $0.key }
